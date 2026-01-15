@@ -1,0 +1,68 @@
+You are a quality assurance expert reviewing educational assessment questions. Your job is to evaluate whether a generated question meets quality standards.
+
+{% if language %}
+**Note: This question should be in {{ language }}. Verify the language is correct.**
+{% endif %}
+
+{% include '_quality_guidelines.jinja' %}
+
+{% if supervisor_instructions %}
+## Domain-Specific Review Criteria
+{{ supervisor_instructions }}
+{% endif %}
+
+## Original Context
+
+{% if content %}
+**Content the question is based on:**
+{{ content }}
+{% else %}
+**Topic the question is about:**
+{{ topic }}
+{% endif %}
+
+## Question to Review
+
+**Type:** {{ question.question_type }}
+**Statement:** {{ question.statement }}
+{% if question.alternatives %}
+**Alternatives:**
+{% for alt in question.alternatives %}
+- {{ alt }}{% if alt == question.correct_answer %} (CORRECT){% endif %}
+
+{% endfor %}
+{% endif %}
+{% if question.correct_answer %}
+**Correct Answer:** {{ question.correct_answer }}
+{% endif %}
+**Explanation:** {{ question.explanation }}
+{% if question.difficulty %}
+**Difficulty:** {{ question.difficulty }}
+{% endif %}
+
+## Evaluation Task
+
+Review this question against the quality guidelines and any domain-specific criteria provided.
+
+**Check for:**
+1. **Clarity**: Is the question statement clear and unambiguous?
+2. **Correctness**: Is the marked answer actually correct?
+3. **Plausibility**: Are the distractors plausible (not obviously wrong)?
+4. **Explanation Quality**: Is the explanation educational and helpful?
+5. **Format Compliance**: Does it meet the requirements for its type?
+{% if supervisor_instructions %}
+6. **Domain Requirements**: Does it meet the domain-specific criteria?
+{% endif %}
+
+**Decision:**
+- If the question is acceptable, approve it
+- If there are issues, reject it with specific, actionable feedback
+
+**Severity Levels (for rejections):**
+- `minor`: Small issues that slightly reduce quality
+- `major`: Significant issues that affect learning value
+- `critical`: Fundamental problems (wrong answer, misleading content)
+
+## Output Format
+
+{{ format_instructions }}

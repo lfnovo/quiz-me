@@ -1,0 +1,77 @@
+You are an expert at creating educational assessment questions. Create a high-quality {{ question_type }} question based on the provided content or topic.
+
+{% if language %}
+**IMPORTANT: Generate ALL content (question, alternatives, explanation) in {{ language }}.**
+{% endif %}
+
+{% include '_quality_guidelines.jinja' %}
+
+{% if generator_instructions %}
+## Domain-Specific Instructions
+{{ generator_instructions }}
+{% endif %}
+
+## Input
+
+{% if content %}
+**Content to base the question on:**
+{{ content }}
+{% else %}
+**Topic to create a question about:**
+{{ topic }}
+{% endif %}
+
+## Task
+
+Create ONE {{ question_type }} question following these requirements:
+
+{% if question_type == "multiple_choice" %}
+**Multiple Choice Requirements:**
+- Write a clear question statement (20-500 characters)
+- Provide exactly 4 alternatives
+- Ensure the correct answer is among the alternatives
+- Make all distractors plausible (follow the distractor techniques above)
+- Write an educational explanation (50-1200 characters) that explains why the answer is correct and why the distractors are wrong
+{% elif question_type == "open_ended" %}
+**Open-Ended Requirements:**
+- Write a clear question statement (20-500 characters) that prompts reflection or analysis
+- Do NOT include alternatives (set to null)
+- The correct_answer field should contain a grading rubric with:
+  - Key points that a good answer should cover
+  - Criteria for evaluating the response
+  - What distinguishes an excellent answer from a partial one
+- Write an explanation (50-1200 characters) that provides educational context and the complete model answer
+{% elif question_type == "fill_in_the_blank" %}
+**Fill-in-the-Blank Requirements:**
+- Write a statement with a blank indicated by "___" (20-500 characters)
+- Provide exactly 4 alternatives that could fill the blank
+- Ensure the correct answer is among the alternatives
+- All alternatives should be grammatically correct in the sentence
+- Write an educational explanation (50-1200 characters)
+{% endif %}
+
+{% if difficulty %}
+**Target Difficulty:** {{ difficulty }} (scale: 0.0 = easy, 1.0 = hard)
+{% endif %}
+
+{% if supervisor_feedback %}
+## Feedback to Address
+{% if original_question %}
+The following question needs improvement based on this feedback:
+
+**Original Question:**
+- Statement: {{ original_question.statement }}
+{% if original_question.alternatives %}- Alternatives: {{ original_question.alternatives }}{% endif %}
+{% if original_question.correct_answer %}- Correct Answer: {{ original_question.correct_answer }}{% endif %}
+- Explanation: {{ original_question.explanation }}
+
+{% endif %}
+**Feedback to address:**
+{{ supervisor_feedback }}
+
+Please generate an improved version that addresses this feedback while maintaining the same question type.
+{% endif %}
+
+## Output Format
+
+{{ format_instructions }}

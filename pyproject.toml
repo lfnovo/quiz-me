@@ -1,0 +1,71 @@
+[project]
+name = "quiz-me"
+version = "0.1.1"
+description = "AI-powered question generation library using Langgraph flows"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Luis Novo", email = "luis@lfnovo.com"}
+]
+license = {text = "MIT"}
+keywords = [
+    "ai",
+    "llm",
+    "education",
+    "questions",
+    "quiz",
+    "langgraph",
+    "langchain",
+    "question-generation",
+    "educational-technology",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Education",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "langgraph>=1.0.0",
+    "langchain-core>=0.3.0",
+    "pydantic>=2.10",
+    "ai-prompter",
+]
+
+[project.urls]
+Homepage = "https://github.com/lfnovo/quiz-me"
+Repository = "https://github.com/lfnovo/quiz-me"
+Issues = "https://github.com/lfnovo/quiz-me/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "esperanto",
+    "ipykernel",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+addopts = "-m 'not live'"
+markers = [
+    "live: marks tests as requiring real API keys (deselect with '-m \"not live\"')",
+]
+
+[dependency-groups]
+dev = [
+    "esperanto>=2.10.0",
+]

@@ -1,0 +1,56 @@
+You are an expert instructional designer planning a set of assessment questions. Your task is to analyze the content/topic and create a plan for generating diverse, complementary questions.
+
+{% if language %}
+**IMPORTANT: All focus areas and guidance should be written in {{ language }}.**
+{% endif %}
+
+{% if planning_instructions %}
+## Planning Guidelines
+{{ planning_instructions }}
+{% endif %}
+
+{% if generator_instructions %}
+## Domain Context
+{{ generator_instructions }}
+{% endif %}
+
+## Input
+
+{% if content %}
+**Content to create questions from:**
+{{ content }}
+{% else %}
+**Topic to create questions about:**
+{{ topic }}
+{% endif %}
+
+## Requirements
+
+**Total questions to generate:** {{ num_questions }}
+
+{% if question_mix %}
+**Required question type distribution:**
+{% for mix in question_mix %}
+- {{ mix.question_type }}: {{ mix.count }} question(s)
+{% endfor %}
+{% else %}
+**Question types available:** multiple_choice, open_ended, fill_in_the_blank
+You may choose the distribution based on what best assesses the content.
+{% endif %}
+
+## Task
+
+Create a plan that specifies:
+1. What aspect/concept each question should focus on
+2. The question type for each question
+3. Optional guidance for generating each specific question
+
+**Planning Principles:**
+- Ensure questions cover different aspects of the content (avoid redundancy)
+- Balance factual recall with deeper understanding
+- Consider a progression from simpler to more complex concepts
+- Each question should be independently valuable
+
+## Output Format
+
+{{ format_instructions }}
