@@ -1,0 +1,27 @@
+README.md
+  s_6cbe77ec2e669f::t_7bc8ddf6a33027 165
+pyproject.toml
+  s_6cbe77ec2e669f::t_7bc8ddf6a33027 61-62,64
+CHANGELOG.md
+  s_6cbe77ec2e669f::t_7bc8ddf6a33027 17-20
+.github/workflows/test.yml
+  s_6cbe77ec2e669f::t_7bc8ddf6a33027 38
+uv.lock
+  s_6cbe77ec2e669f::t_8ce64d88a7f3ae 1463,1480-1485
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "27d571fefec1710b1aedcb44e08aac4fc0111cad",
+  "prompts": {},
+  "sessions": {
+    "s_6cbe77ec2e669f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f0725de3-1f11-4ae0-93e0-7f600a12f59b",
+        "model": "claude-fable-5-2"
+      },
+      "human_author": "Luis Novo <lfnovo@gmail.com>"
+    }
+  }
+}
