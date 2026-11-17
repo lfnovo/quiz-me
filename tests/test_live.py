@@ -21,13 +21,19 @@ pytestmark = [
     ),
 ]
 
+LIVE_MODEL = "gpt-6-luna"
+# gpt-6 models reject top_p, and esperanto sends top_p=0.9 by default.
+LIVE_MODEL_CONFIG = {"top_p": None}
+
 
 @pytest.fixture(scope="module")
 def generator_model():
     """Create a real LangChain model for generation."""
     from esperanto import AIFactory
 
-    return AIFactory.create_language("openai", "gpt-4o-mini").to_langchain()
+    return AIFactory.create_language(
+        "openai", LIVE_MODEL, config=LIVE_MODEL_CONFIG
+    ).to_langchain()
 
 
 @pytest.fixture(scope="module")
@@ -35,7 +41,9 @@ def supervisor_model():
     """Create a real LangChain model for supervision."""
     from esperanto import AIFactory
 
-    return AIFactory.create_language("openai", "gpt-4o-mini").to_langchain()
+    return AIFactory.create_language(
+        "openai", LIVE_MODEL, config=LIVE_MODEL_CONFIG
+    ).to_langchain()
 
 
 SAMPLE_CONTENT = """

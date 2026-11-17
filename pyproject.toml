@@ -1,9 +1,9 @@
 [project]
 name = "quiz-me"
-version = "0.1.1"
+version = "0.2.0"
 description = "AI-powered question generation library using Langgraph flows"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 authors = [
     {name = "Luis Novo", email = "luis@lfnovo.com"}
 ]
@@ -25,7 +25,6 @@ classifiers = [
     "Intended Audience :: Education",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Education",
@@ -34,23 +33,15 @@ classifiers = [
 ]
 dependencies = [
     "langgraph>=1.0.0",
-    "langchain-core>=0.3.0",
+    "langchain-core>=1.0.0",
     "pydantic>=2.10",
-    "ai-prompter",
+    "ai-prompter>=0.4.0",
 ]
 
 [project.urls]
 Homepage = "https://github.com/lfnovo/quiz-me"
 Repository = "https://github.com/lfnovo/quiz-me"
 Issues = "https://github.com/lfnovo/quiz-me/issues"
-
-[project.optional-dependencies]
-dev = [
-    "pytest>=8.0",
-    "pytest-asyncio>=0.24",
-    "esperanto",
-    "ipykernel",
-]
 
 [build-system]
 requires = ["hatchling"]
@@ -67,5 +58,9 @@ markers = [
 
 [dependency-groups]
 dev = [
+    "pytest>=9.0",
+    "pytest-asyncio>=1.0",
     "esperanto>=2.10.0",
+    "ipykernel",
+    "langchain-openai>=1.8.0",
 ]
