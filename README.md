@@ -162,7 +162,7 @@ See [docs/](docs/) for detailed documentation.
 
 ```bash
 # Install with dev dependencies
-uv sync --all-extras
+uv sync
 
 # Run tests
 uv run pytest tests/ -v

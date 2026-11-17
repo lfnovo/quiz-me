@@ -14,3 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Raised minimum dev dependency versions: `pytest>=9.0`, `pytest-asyncio>=1.0`.
 - Refreshed the lockfile to the latest compatible releases (langgraph 1.2, langchain-core 1.8, pydantic 2.14, ai-prompter 0.4).
 - CI test matrix now runs on Python 3.11 and 3.12.
+
+### Removed
+
+- The `dev` extra (`quiz-me[dev]`). Development dependencies now live only in the `dev` dependency group, installed by default with `uv sync`.

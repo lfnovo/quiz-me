@@ -1460,7 +1460,7 @@ dependencies = [
     { name = "pydantic" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "esperanto" },
     { name = "ipykernel" },
@@ -1468,26 +1468,21 @@ dev = [
     { name = "pytest-asyncio" },
 ]
 
-[package.dev-dependencies]
-dev = [
-    { name = "esperanto" },
-]
-
 [package.metadata]
 requires-dist = [
     { name = "ai-prompter", specifier = ">=0.4.0" },
-    { name = "esperanto", marker = "extra == 'dev'" },
-    { name = "ipykernel", marker = "extra == 'dev'" },
     { name = "langchain-core", specifier = ">=1.0.0" },
     { name = "langgraph", specifier = ">=1.0.0" },
     { name = "pydantic", specifier = ">=2.10" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0" },
-    { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=1.0" },
 ]
-provides-extras = ["dev"]
 
 [package.metadata.requires-dev]
-dev = [{ name = "esperanto", specifier = ">=2.10.0" }]
+dev = [
+    { name = "esperanto", specifier = ">=2.10.0" },
+    { name = "ipykernel" },
+    { name = "pytest", specifier = ">=9.0" },
+    { name = "pytest-asyncio", specifier = ">=1.0" },
+]
 
 [[package]]
 name = "requests"

@@ -43,14 +43,6 @@ Homepage = "https://github.com/lfnovo/quiz-me"
 Repository = "https://github.com/lfnovo/quiz-me"
 Issues = "https://github.com/lfnovo/quiz-me/issues"
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=9.0",
-    "pytest-asyncio>=1.0",
-    "esperanto",
-    "ipykernel",
-]
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -66,5 +58,8 @@ markers = [
 
 [dependency-groups]
 dev = [
+    "pytest>=9.0",
+    "pytest-asyncio>=1.0",
     "esperanto>=2.10.0",
+    "ipykernel",
 ]
