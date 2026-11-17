@@ -1,0 +1,24 @@
+tests/test_live.py
+  s_6cbe77ec2e669f::t_a0bf04403d986a 34-36,44-46
+  s_6cbe77ec2e669f::t_a458544a3fc71a 24-27
+pyproject.toml
+  s_6cbe77ec2e669f::t_eafc5b440372e4 65
+uv.lock
+  s_6cbe77ec2e669f::t_dc2dc537a01253 570-681,755-769,1015-1031,1611,1628,1633-1753,1813-1873
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f7713f65d42120087676606c08dd2dd70fd85616",
+  "prompts": {},
+  "sessions": {
+    "s_6cbe77ec2e669f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f0725de3-1f11-4ae0-93e0-7f600a12f59b",
+        "model": "claude-fable-5-2"
+      },
+      "human_author": "Luis Novo <lfnovo@gmail.com>"
+    }
+  }
+}
