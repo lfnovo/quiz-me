@@ -62,4 +62,5 @@ dev = [
     "pytest-asyncio>=1.0",
     "esperanto>=2.10.0",
     "ipykernel",
+    "langchain-openai>=1.8.0",
 ]
